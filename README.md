@@ -1,49 +1,88 @@
 # Introduction
 
-## Ortus Redis Extension v2.x Docs
+## Ortus ORM Extension
 
-The [Ortus Redis Extension](https://www.ortussolutions.com/products/redis-lucee) is a **native** Lucee Extension that allows your CFML server to connect to a Redis server or a Redis Cluster and leverage it for built-in caching, session storage, Pub/Sub Messaging, and document storage.
+The [Ortus ORM Extension](https://www.ortussolutions.com/products/orm-extension) is a **native** Lucee Extension that allows your CFML application to integrate with the powerful [Hibernate ORM](https://hibernate.org/orm/). With Hibernate, you can interact with your database records in an object oriented fashion, using components to denote each record and simple getters and setters for each field value:
 
-> Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperlogs and geospatial indexes with radius queries. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster. [Learn More](https://redis.io/topics/introduction)
+```js
+component entityName="Auto" persistent="true" {
+
+	property name="id" type="string" fieldtype="id" ormtype="string";
+	property name="make" type="string";
+	property name="model" type="string";
+
+    function onPreInsert(){
+        log.info( "Inserting new Auto: #getMake()# #getModel()#" );
+    }
+}
+```
+
+The Ortus ORM extension also enables transactional persistence, where an error during a save will roll back the entire transaction to prevent leaving the database in a broken state:
+
+```js
+transaction{
+    try{
+        entitySave(
+            entityNew( "Purchase", {
+                productID : "123-expensive-watch",
+                purchaseTime : now(),
+                customerID : customer.getId()
+            })
+        );
+        var cartProducts = entityLoad( "CartProduct", customer.getID() );
+        entityDelete( cartProducts );
+    } catch ( any e ){
+        // don't clear the user's cart if the purchase failed
+        transactionRollback();
+        rethrow;
+    }
+}
+```
 
 ### Requirements
 
-* Lucee 5.1.0 and above
-* Redis Standalone or Cluster 4.0.X and above
+* Lucee 5.3.9.73 and above
+* Java 8, 11 or 17
 
-### Commercial Product
+### Open Source Product
 
-This Lucee extension is a commercial product by Ortus Solutions. You will need to purchase a license: [https://www.ortussolutions.com/products/redis-lucee](https://www.ortussolutions.com/products/redis-lucee).
+The Ortus ORM extension is an open source Lucee server extension with no license purchase necessary. If you are looking to further the development of this extension, consider [sponsoring a feature or opening a support contract](#support).
 
 ### Features In A Nutshell
 
-* Add Redis native functionality to any Lucee server
-* Install at server level (Available to all contexts)
-* Create Cache connections in the Lucee web administrator or via `Application.cfc` to connect to any network-accessible Redis cluster
-* Set and get objects from Redis via standard CFML functions and tags (`cachePut(), cacheGet(), cfcache action="get|put"`)
-* Fully supports all built-in Lucee cache functions including wildcard filters
-* Seamlessly distribute storage of the following to any Redis Cluster
-  * Lucee session storage
-  * Lucee client storage
-  * Lucee Ram resources (ram://...)
-* Seamlessly cache the following to any timeout-sensitive Redis key
-  * Results of database queries
-  * Results of deterministic functions
-  * Complex or simple objects in your application's code
-  * Cached templates (`cfcache action="content|cache|serverCache"`)
-* Extremely lightweight and fast
-* Ability to publish and subscribe to Redis channels for pub/sub capabilities: https://redis.io/topics/pubsub
-* Native Redis functions:
-  * `RedisGetCluster( cacheName )`
-  * `RedisGetClusterNodes( cacheName )`
-  * `RedisGetConnectionPool( cacheName )`
-  * `RedisGetProvider( cacheName )`
-  * `RedisPublish( channel, message, cacheName )`
-  * `RedisSubscribe( subscriber, channels, cacheName )`
+* Add Object Relational Mapping to any CFML app with Hibernate ORM
+* Use native CFML methods to update and persist entities to the database (`entityNew()`, `entitySave()`, `ormFlush()`, etc.)
+* Supports 80+ database dialects, from `SQLServer2005` to `MySQL8` and `PostgreSQL`
+* 60% faster startup than the Lucee Hibernate extension
+* Generate your mapping XML once and never again with the `autoGenMap=false` ORM configuration setting
+* React to entity changes with pre and post event listeners such as `onPreInsert()`, `onPreUpdate()` and `onPreDelete()`
+* Over 20 native CFML functions:
+  * `EntityDelete()`
+  * `EntityLoad()`
+  * `EntityLoadByExample()`
+  * `EntityLoadByPK()`
+  * `EntityMerge()`
+  * `EntityNameArray()`
+  * `EntityNameList()`
+  * `EntityNew()`
+  * `EntityReload()`
+  * `EntitySave()`
+  * `EntityToQuery()`
+  * `ORMClearSession()`
+  * `ORMCloseAllSessions()`
+  * `ORMEvictCollection()`
+  * `ORMEvictEntity()`
+  * `ORMEvictQueries()`
+  * `ORMExecuteQuery()`
+  * `ORMFlush()`
+  * `ORMGetSession()`
+  * `ORMGetSessionFactory()`
+  * `ORMReload()`
 
+See the [extension changelog](https://github.com/Ortus-Solutions/extension-hibernate/blob/master/CHANGELOG.md) for a full list of enhancements and bug fixes.
 ### Support
 
-The Ortus Redis Extension is a commercial product by Ortus Solutions. If you have purchased a license then you are entitled to customer support. You can either visit our support page to contact us or create an issue in our bug tracker.
+Our expertise with Hibernate ORM and Lucee Server allows us to give back to the community, as well as offer premium support to enterprises looking for a level up in their Hibernate implementations. If you need performance optimization, session management or caching integrations, please [contact us for support](https://ortussolutions.atlassian.net/servicedesk/customer/portal/9).
 
-* Support Page: [https://www.ortussolutions.com/services/support](https://www.ortussolutions.com/services/support)
-* Bug Tracker: [https://ortussolutions.atlassian.net/browse/LRE](https://ortussolutions.atlassian.net/browse/LRE)
+* Support Plans: [https://www.ortussolutions.com/services/support](https://www.ortussolutions.com/services/support)
+* Bug Tracker: [https://ortussolutions.atlassian.net/browse/OOE](https://ortussolutions.atlassian.net/browse/OOE)
