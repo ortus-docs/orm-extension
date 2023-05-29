@@ -2,11 +2,11 @@
 
 ## From the Lucee Server Admin
 
-You can manually install the Ortus ORM extension by opening the Lucee server admin page and browsing to Extension > Applications page, where you'll see a "Ortus ORM Extension" option. Clicking this option will open the installation screen, where you can choose any extension version and click "Install" to install from Forgebox. You can also download a .lex file from [our downloads page](https://downloads.ortussolutions.com/#/lucee/extensions/hibernate/) and upload this through the main Applications page. 
+You can manually install the extension by opening the Lucee server admin page and browsing to Extension > Applications page, where you'll see a "Ortus ORM Extension" option. Clicking this option will open the installation screen, where you can choose any extension version and click "Install" to install from Forgebox. You can also download a .lex file from [our downloads page](https://downloads.ortussolutions.com/#/lucee/extensions/hibernate/) and upload this through the main Applications page. 
 
 ## From CommandBox
 
-You can install this extension into a preconfigured Lucee server via Commandbox:
+You can install this extension into a *preconfigured* Lucee server via Commandbox:
 
 ```bash
 box install D062D72F-F8A2-46F0-8CBC91325B2F067B
