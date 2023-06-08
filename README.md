@@ -46,6 +46,14 @@ transaction{
 * Lucee 5.3.9.73 and above
 * Java 8, 11 or 17
 
+### Current Hibernate Version
+
+The current version of HIbernate is **5.4** series:
+
+* [https://hibernate.org/orm/releases/5.4/](https://hibernate.org/orm/releases/5.4/)
+* [https://docs.jboss.org/hibernate/orm/5.4/userguide/html\_single/Hibernate\_User\_Guide.html](https://docs.jboss.org/hibernate/orm/5.4/userguide/html\_single/Hibernate\_User\_Guide.html)
+* [https://docs.jboss.org/hibernate/orm/5.4/javadocs/](https://docs.jboss.org/hibernate/orm/5.4/javadocs/)
+
 ### Open Source Product
 
 The Ortus ORM extension is an open source Lucee server extension with no license purchase necessary. If you are looking to further the development of this extension, consider [sponsoring a feature or opening a support contract](./#support).

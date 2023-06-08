@@ -7,7 +7,9 @@
 
 * [Release History](intro/release-history.md)
 * [Installation](intro/installation.md)
-* [Configuration](intro/configuration.md)
+* [Configuration](intro/configuration/README.md)
+  * [Naming Strategies](intro/configuration/naming-strategies.md)
+  * [Custom Hibernate Config](intro/configuration/custom-hibernate-config.md)
 
 ## Modeling
 
@@ -22,3 +24,4 @@
 * [Events](usage/events.md)
 * [Session Management](usage/session-management.md)
 * [HQL](usage/hql.md)
+* [Caching](usage/caching.md)
