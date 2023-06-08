@@ -7,9 +7,10 @@
 
 * [Release History](intro/release-history.md)
 * [Installation](intro/installation.md)
-* [Configuration](intro/configuration/README.md)
+* [Configuration](intro/configuration.md)
   * [Naming Strategies](intro/configuration/naming-strategies.md)
   * [Custom Hibernate Config](intro/configuration/custom-hibernate-config.md)
+  * [Secondary Caches](intro/configuration/secondary-caches.md)
 
 ## Modeling
 
