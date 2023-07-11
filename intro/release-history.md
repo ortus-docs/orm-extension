@@ -1,13 +1,4 @@
 # Release History
-## 6.1.0 - 2023-07-11
-
-### 💥 Removed
-
-* Dropped the public  method from the Dialect class. This method was unused (to my knowledge) and unnecessary.
-
-### 🔐 Security
-
-- Switched to [Snyk vulnerability scanner](https://github.com/snyk/actions/tree/master/maven-3-jdk-11) to limit false positives. Security vulnerabilities will now be published on the [GitHub repository's Security Advisories page](https://github.com/Ortus-Solutions/extension-hibernate/security/advisories).
 
 ## [6.0.0] - 2023-07-01
 
