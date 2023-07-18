@@ -6,26 +6,22 @@ description: Get up and running in seconds!
 
 ## CommandBox
 
-You can install this extension into a _preconfigured_ Lucee server via Commandbox:
+You can install this extension at server start time by passing the extension ID into the `lucee-extensions` environment variable:
 
 ```bash
-box install D062D72F-F8A2-46F0-8CBC91325B2F067B
+box server start cfengine=lucee@5.4 -Dlucee-extensions='D062D72F-F8A2-46F0-8CBC91325B2F067B'
 ```
 
-This will not work unless `box server start` has been run first to set up the Lucee engine directories. Use `--dryRun` to set up the Lucee server without actually starting the server process. This will prevent ORM from attempting to initialize before the extension is installed:
+To install a specific version, set that by appending `;version=1.2.3` to the extension ID:
 
 ```bash
-box> server start --dryRun
-box> install D062D72F-F8A2-46F0-8CBC91325B2F067B
-box> server start
+box server start cfengine=lucee@5.4 -Dlucee-extensions='D062D72F-F8A2-46F0-8CBC91325B2F067B;version=6.1.0'
 ```
 
-## JVM Argument
+Use `box install` if you wish to install the extension into an already running Lucee server:
 
-You can also use the Lucee JVM argument to install the extension at startup
-
-```json
--Dlucee-extensions=D062D72F-F8A2-46F0-8CBC91325B2F067B
+```bash
+box install D062D72F-F8A2-46F0-8CBC91325B2F067B@6.1.0
 ```
 
 ## From the Lucee Server Admin
