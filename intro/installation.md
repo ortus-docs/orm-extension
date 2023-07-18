@@ -32,6 +32,6 @@ You can also use the Lucee JVM argument to install the extension at startup
 
 You can manually install the extension by opening the Lucee server admin page and browsing to `Extension > Applications` page, where you'll see a "Ortus ORM Extension" option. Clicking this option will open the installation screen, where you can choose any extension version and click "Install" to install from Forgebox.&#x20;
 
-## Direct Download
+### Direct Download
 
-You can also download a .lex file from [our downloads page](https://downloads.ortussolutions.com/#/lucee/extensions/hibernate/) and upload this through the main Applications page.
+You can also download a .lex file from [our downloads page](https://downloads.ortussolutions.com/#/ortussolutions/lucee-extensions/ortus-orm/) and upload this through the Lucee Server admin's Applications page.
