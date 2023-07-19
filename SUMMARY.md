@@ -1,11 +1,13 @@
 # Table of contents
 
 * [Introduction](README.md)
+  * [Release History](readme/release-history/README.md)
+    * [What's New With 6.x](readme/release-history/whats-new-with-6.x.md)
+    * [What's New With 5.x](readme/release-history/whats-new-with-5.x.md)
   * [About This Book](introduction/about-this-book.md)
 
 ## Intro
 
-* [Release History](intro/release-history.md)
 * [Installation](intro/installation.md)
 * [Configuration](intro/configuration.md)
   * [Naming Strategies](intro/configuration/naming-strategies.md)
