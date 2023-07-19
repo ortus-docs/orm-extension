@@ -8,11 +8,11 @@
 
 ## Getting Started
 
-* [Installation](getting-started/installation.md)
-* [Configuration](getting-started/configuration/README.md)
-  * [Naming Strategies](getting-started/configuration/naming-strategies.md)
-  * [Custom Hibernate Config](getting-started/configuration/custom-hibernate-config.md)
-  * [Secondary Caches](getting-started/configuration/secondary-caches.md)
+* [Installation](intro/installation.md)
+* [Configuration](intro/configuration.md)
+  * [Naming Strategies](intro/configuration/naming-strategies.md)
+  * [Custom Hibernate Config](intro/configuration/custom-hibernate-config.md)
+  * [Secondary Caches](intro/configuration/secondary-caches.md)
 
 ## Modeling
 
