@@ -1,6 +1,32 @@
 # What's New With 6.x
 
-### [6.1.0](https://github.com/Ortus-Solutions/extension-hibernate/compare/2c540a96f2a87145fda2f651a000f041b166b543...6.1.0) - 2023-07-14
+### [6.2.0](https://github.com/Ortus-Solutions/extension-hibernate/compare/v6.1.0...v6.2.0) - 2023-08-03
+
+### ♻️ Changed
+
+#### Hibernate Upgraded from 5.4 to 5.6
+
+This brings the Hibernate dependencies up to date (released Feb. 2023), and should not change any CFML-facing features for *most* users. (See [CLOB columns in Postgres81](#clob-columns-in-postgres81))
+
+See the migration guides for more info:
+
+* [Hibernate 5.4 -> 5.4 migration guide](https://github.com/hibernate/hibernate-orm/blob/5.5/migration-guide.adoc)
+* [Hibernate 5.5 -> 5.6 migration guide](https://github.com/hibernate/hibernate-orm/blob/5.6/migration-guide.adoc)
+
+#### CLOB columns in Postgres81
+
+Due to the Hibernate 5.6 upgrade, if you are using the `PostgreSQL81` dialect and have `CLOB` columns in your database, [it is recommended you migrate existing text columns for LOBs to `oid`](https://github.com/hibernate/hibernate-orm/blob/5.6/migration-guide.adoc#changes-to-the-ddl-type-for-clob-in-postgresql81dialect-and-its-subclasses).
+
+#### Default EHCache Configuration
+
+The default `ehcache.xml` for EHCache changed to include [`clearOnFlush="true"`](https://www.ehcache.org/apidocs/2.10.1/net/sf/ehcache/config/CacheConfiguration.html#clearOnFlush) and [`diskSpoolBufferSizeMB="30MB"`](https://www.ehcache.org/apidocs/2.10.1/net/sf/ehcache/config/CacheConfiguration.html#diskSpoolBufferSizeMB) properties to match [Adobe ColdFusion 9's  default `ehCache.xml` config](https://helpx.adobe.com/coldfusion/developing-applications/coldfusion-orm/performance-optimization/caching.html). Both these values represent default settings in EHCache itself.
+
+### 🐛 Fixed
+
+* Fixes handling of `"timezone"`-typed column values. Previously, fields defined with `ormtype="timezone"` would neither use the `default` value nor allow new values to be set. [OOE-10](https://ortussolutions.atlassian.net/browse/OOE-10)
+* Fixes entity state changes in `preInsert()`/`preUpdate()` listeners for properties with no `default` defined. [OOE-9](https://ortussolutions.atlassian.net/browse/OOE-9)
+
+### [6.1.0](https://github.com/Ortus-Solutions/extension-hibernate/compare/v6.0.0...v6.1.0) - 2023-07-14
 
 #### ♻️ Changed
 
