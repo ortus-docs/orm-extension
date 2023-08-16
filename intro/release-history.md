@@ -4,7 +4,7 @@ In this section, you will find the release notes for each version we release und
 
 ## Version 6.x
 
-A new layout, gradle builds, and much more.
+A new layout, cache and logging improvements, and much more.
 
 ## Version 5.x
 
