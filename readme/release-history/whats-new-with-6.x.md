@@ -1,12 +1,25 @@
 # What's New With 6.x
 
+### \[[6.3.0](https://github.com/Ortus-Solutions/extension-hibernate/compare/v6.2.0...v6.3.0)] - 2023-08-18
+
+#### 🔐 Security
+
+Switched the [EHCache](https://mvnrepository.com/artifact/net.sf.ehcache/ehcache/2.10.6) library to use [net.sf.ehcache.internal:ehcache-core](https://mvnrepository.com/artifact/net.sf.ehcache.internal/ehcache-core/2.10.9.2).
+
+* Upgrades EHCache version from `2.10.6` to `2.10.9.2`.
+* Drops an embedded `rest-management-private-classpath` directory
+* Drops a number of (unused) vulnerable jackson and jetty libraries such as jackson-core.
+* As an added bonus, this reduces the final `.lex` extension file size by over 6 MB. 🎉
+
+**Note:** While it is not 100% clear, [some of these CVEs may have been false positives](https://github.com/jeremylong/DependencyCheck/issues/517).
+
 ### [6.2.0](https://github.com/Ortus-Solutions/extension-hibernate/compare/v6.1.0...v6.2.0) - 2023-08-03
 
 ### ♻️ Changed
 
 #### Hibernate Upgraded from 5.4 to 5.6
 
-This brings the Hibernate dependencies up to date (released Feb. 2023), and should not change any CFML-facing features for *most* users. (See [CLOB columns in Postgres81](#clob-columns-in-postgres81))
+This brings the Hibernate dependencies up to date (released Feb. 2023), and should not change any CFML-facing features for _most_ users. (See [CLOB columns in Postgres81](whats-new-with-6.x.md#clob-columns-in-postgres81))
 
 See the migration guides for more info:
 
@@ -19,7 +32,7 @@ Due to the Hibernate 5.6 upgrade, if you are using the `PostgreSQL81` dialect an
 
 #### Default EHCache Configuration
 
-The default `ehcache.xml` for EHCache changed to include [`clearOnFlush="true"`](https://www.ehcache.org/apidocs/2.10.1/net/sf/ehcache/config/CacheConfiguration.html#clearOnFlush) and [`diskSpoolBufferSizeMB="30MB"`](https://www.ehcache.org/apidocs/2.10.1/net/sf/ehcache/config/CacheConfiguration.html#diskSpoolBufferSizeMB) properties to match [Adobe ColdFusion 9's  default `ehCache.xml` config](https://helpx.adobe.com/coldfusion/developing-applications/coldfusion-orm/performance-optimization/caching.html). Both these values represent default settings in EHCache itself.
+The default `ehcache.xml` for EHCache changed to include [`clearOnFlush="true"`](https://www.ehcache.org/apidocs/2.10.1/net/sf/ehcache/config/CacheConfiguration.html#clearOnFlush) and [`diskSpoolBufferSizeMB="30MB"`](https://www.ehcache.org/apidocs/2.10.1/net/sf/ehcache/config/CacheConfiguration.html#diskSpoolBufferSizeMB) properties to match [Adobe ColdFusion 9's default `ehCache.xml` config](https://helpx.adobe.com/coldfusion/developing-applications/coldfusion-orm/performance-optimization/caching.html). Both these values represent default settings in EHCache itself.
 
 ### 🐛 Fixed
 
