@@ -1,8 +1,12 @@
+---
+description: More info on this documentation gitbook for the Ortus ORM Extension
+---
+
 # About This Book
 
 The source code for this book is hosted in GitHub:
 
-{% embed url="https://github.com/ortus-docs/orm-extension" %}
+{% @github-files/github-code-block url="https://github.com/ortus-docs/orm-extension" %}
 
 You can freely contribute to it and submit pull requests. The contents of this book is copyright by [Ortus Solutions, Corp](http://www.ortussolutions.com) and cannot be altered or reproduced without author's consent. All content is provided _"As-Is"_ and can be freely distributed.
 

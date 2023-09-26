@@ -1,3 +1,7 @@
+---
+description: Easily run actions on entity insertion, update, and more with event listeners
+---
+
 # Events
 
 Hibernate ORM allows reacting to various events in the session lifecycle such as `onPreInsert`, `onPostUpdate`, `onFlush`, etc. To enable listening to these events, set `eventHandling` to `true` and pass a path to the global event handler using `eventHandler`:
