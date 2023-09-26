@@ -1,6 +1,20 @@
+---
+description: Version 6.x release notes for the Ortus ORM Extension
+---
+
 # What's New With 6.x
 
-### \[[6.3.0](https://github.com/Ortus-Solutions/extension-hibernate/compare/v6.2.0...v6.3.0)] - 2023-08-18
+### [6.3.1](https://github.com/Ortus-Solutions/extension-hibernate/compare/v6.3.0...v6.3.1) - 2023-09-26
+
+#### 🐛 Fixed
+
+Refactored nullability checks to occur _after_ pre-event listener methods fire. Resolves [OOE-12](https://ortussolutions.atlassian.net/browse/OOE-12)
+
+#### ⭐ Added
+
+Added context to the error message in `CFCGetter`, which handles retrieving entity values from Hibernate code. This improves odd error messages in some edge cases with the Hibernate tuplizer.
+
+### [6.3.0](https://github.com/Ortus-Solutions/extension-hibernate/compare/v6.2.0...v6.3.0) - 2023-08-18
 
 #### 🔐 Security
 
