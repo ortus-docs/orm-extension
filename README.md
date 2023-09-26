@@ -52,9 +52,19 @@ transaction{
 * Lucee 5.3.9.73 and above
 * Java 8, 11 or 17
 
-### Current Hibernate Version
+### Hibernate Version Support
 
-The current version of HIbernate is **5.4** series:
+#### Extension v6.2+
+
+The Ortus ORM Extension bundles Hibernate `5.6.15.FINAL` since extension version 6.2.0.
+
+* [https://hibernate.org/orm/releases/5.6/](https://hibernate.org/orm/releases/5.6/)
+* [https://docs.jboss.org/hibernate/orm/5.6/userguide/html\_single/Hibernate\_User\_Guide.html](https://docs.jboss.org/hibernate/orm/5.6/userguide/html\_single/Hibernate\_User\_Guide.html)
+* [https://docs.jboss.org/hibernate/orm/5.6/javadocs/](https://docs.jboss.org/hibernate/orm/5.6/javadocs/)
+
+#### Extension v6.1-
+
+Previous versions of the Ortus ORM Extension bundle Hibernate `5.4.29.FINAL`:
 
 * [https://hibernate.org/orm/releases/5.4/](https://hibernate.org/orm/releases/5.4/)
 * [https://docs.jboss.org/hibernate/orm/5.4/userguide/html\_single/Hibernate\_User\_Guide.html](https://docs.jboss.org/hibernate/orm/5.4/userguide/html\_single/Hibernate\_User\_Guide.html)
