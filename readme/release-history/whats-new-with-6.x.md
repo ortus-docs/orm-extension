@@ -4,6 +4,12 @@ description: Version 6.x release notes for the Ortus ORM Extension
 
 # What's New With 6.x
 
+### [6.3.2](https://github.com/Ortus-Solutions/extension-hibernate/compare/v6.3.1...v6.3.2) - 2023-09-29
+
+#### 🐛 Fixed
+
+Fixed pre-event listeners to include parent component properties when checking for entity mutations to persist back to the event entity state. This resolves issues with changes made in `preInsert()`/`preUpdate()` not persisting if the changes are made on a persistent property from a parent component. Resolves [OOE-14](https://ortussolutions.atlassian.net/browse/OOE-14).
+
 ### [6.3.1](https://github.com/Ortus-Solutions/extension-hibernate/compare/v6.3.0...v6.3.1) - 2023-09-26
 
 #### 🐛 Fixed
