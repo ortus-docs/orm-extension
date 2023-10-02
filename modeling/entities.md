@@ -8,7 +8,23 @@ component persistent="true"{
 }
 ```
 
-You can specify various attributes on the entity via component attributes:
+By default, the entity name will be the CFC file name - minus the file extension, of course. We can modify the entity name via the `entityname` annotation:
+
+```js
+component persistent="true" entityname="Author" {
+
+}
+```
+
+And the table name via the `table` annotation:
+
+```js
+component persistent="true" entityname="Author" table="authors" {
+
+}
+```
+
+Here's the full list of available annotations for a persistent component:
 
 | Attribute             | Type      | Default   | Description                                      |
 |-----------------------|-----------|-----------|--------------------------------------------------|
@@ -30,6 +46,6 @@ You can specify various attributes on the entity via component attributes:
 | `discriminatorValue`  | `string`  |           | Use this attribute to define the discriminator value to be used in inheritance mapping |
 | `joinColumn`          | `string`  |           | Define a join column for inheritance mapping |
 | `embedded`            | `boolean` |           | Marks CFC as embedded, used when a CFC has an embedded object which also needs to be persisted along with the parent's data |
-| `cacheUse`            | `string`  |           | Specify the caching strategy to be used for caching this component's data in the secondary cache: `read-only`|`nonstrict-read-writ    e`|`read-write`|`transactional` |
+| `cacheUse`            | `string`  |           | Specify the caching strategy to be used for caching this component's data in the secondary cache: `read-only`|`nonstrict-read-write`|`read-write`|`transactional` |
 | `cacheName`           | `string`  |           | Specify the name of the secondary cache |
 | `saveMapping`         | `boolean` | `false`   | Specifies whether the generated Hibernate mapping file has to be saved to disk. If you set the value to true, the Hibernate mapping XML file is saved as `{CFC name}.hbm.xml` in the same directory as the CFC. |
