@@ -4,7 +4,22 @@ description: Easily run actions on entity insertion, update, and more with event
 
 # Events
 
-Hibernate ORM allows reacting to various events in the session lifecycle such as `onPreInsert`, `onPostUpdate`, `onFlush`, etc. To enable listening to these events, set `eventHandling` to `true` and pass a path to the global event handler using `eventHandler`:
+Hibernate ORM allows reacting to various events in the session lifecycle such as `onPreInsert`, `onPostUpdate`, `onFlush`, etc. You can enable event handling in CFML by setting `eventHandling` to `true` in your `this.ormSettings` struct:
+
+```js
+this.ormSettings = {
+    eventHandling: true
+};
+```
+
+This will enable two different event listener types for listening to Hibernate events:
+
+* Listen to all events across all entities via the [global event handler](#global-event-handler)
+* Listen to specific events on a specific entity via [entity event handler](#entity-event-handler) methods
+
+## Global Event Handler
+
+To use a global event handler, you must set a path to the global event handler using the `eventHandler` setting:
 
 ```js
 this.ormSettings = {
@@ -18,7 +33,6 @@ The `EventHandler.cfc` must then contain function definitions matching the ORM e
 Currently, the available event names are:
 
 * `onFlush`
-* `postNew`
 * `preLoad`
 * `postLoad`
 * `preInsert`
@@ -43,10 +57,6 @@ component {
 	}
 
 	function onFlush( entity ) {
-		// Do something upon function call
-	}
-
-	function postNew( any entity, any entityName ){
 		// Do something upon function call
 	}
 
@@ -95,3 +105,34 @@ component {
 	}
 }
 ```
+
+## Entity Event Handler
+
+You can also listen to events on a specific entity at the entity level by adding methods to the entity (component) itself:
+
+```js
+component persistent="true"{
+	function preInsert( entity ){
+		setDateCreated( now() );
+	}
+	function preUpdate( entity ){
+		setDateModified( now() );
+	}
+}
+```
+
+{% hint style="info" %}
+Note that only events related to a specific entity will fire upon that entity. For example, you cannot listen to `onFlush` in an entity event handler because a flush is not tied to any one entity.
+{% endhint %}
+
+Here is the full list of event types which can be listened to in entity event listeners:
+
+* `preLoad`
+* `postLoad`
+* `preInsert`
+* `postInsert`
+* `preUpdate`
+* `postUpdate`
+* `preDelete`
+* `onDelete`
+* `postDelete`
