@@ -30,12 +30,12 @@ component persistent="true"{
 
 There are several "type" concepts and annotations you may need to use to keep the proper format when persisting or retrieving table data. While these may look similar, they are not equivalent.
 
-| Attribute     | Type                          | Description                                                                                |
+| Attribute     | Examples                      | Description                                                                                |
 |---------------|-------------------------------|-------------------------------------------------------------------------------------------|
 | `type`        | `date`,`numeric`              | CFML data type                                                                            |
 | `fieldtype`   | `column`,`id`, `one-to-many`  | Denote a special type of field, like an identifier or relationship field.                 |
 | `ormType`     | `big_decimal`,`timestamp`     | Data type for the database value.                                                         |
-| `sqlType`     |                               | A vendor-specific SQL type used for table creation only. This can normally be ignored.    |
+| `sqlType`     | `nvarchar`                    | A vendor-specific SQL type used for table creation only. This can normally be ignored.    |
 
 ## Field Type
 
@@ -111,7 +111,7 @@ These property annotations are used when setting `fieldtype="collection"` and `c
 | `fetch`               | `string`            | |
 | `cascade`             | `string`            | |
 | `constrained`         | `boolean`           | Only valid for `one-to-one` relationships. [See Hibernate 3.3 Mapping Documentation](https://docs.jboss.org/hibernate/core/3.3/reference/en/html/mapping.html#mapping-declaration-onetoone) |
-| `optimisticLock`      | `boolean`           | Enable optimistic locking on this association |
+| `optimisticLock`      | `boolean`           | Enable optimistic locking on this association. One of `all`, `dirty`, `version`, `none`. |
 | `mappedby`            | `string`            | Specify the property on the association that maps to this entity. |
 | `cfc`                 | `string`            | Specify the CFC location of the foreign entity. |
 | `joinColumn`          | `string`            | Join the foreign entity on this column in this entity. |
