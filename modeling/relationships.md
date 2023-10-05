@@ -95,11 +95,20 @@ property name="Authors"
 
 Man, you wanna get lazy? How about don't-fetch-the-data-until-you-need-it kinda lazy?
 
-Using the `lazy=BOOLEAN` property, we can tell Hibernate not to fetch the relational data *unless* and *until* a method call such as `Authors()` attempts to load it. This greatly improves performance on page requests which do not need that particular data:
+Using `lazy=true`, we can tell Hibernate not to fetch the relational data *unless* and *until* a method call such as `Authors()` attempts to load it. This greatly improves performance on page requests which do not need that particular data:
 
 ```js
-property name="Authors"
-    fieldtype="many-to-one"
-    lazy="true"
-    cfc="User";
+property name="posts"
+    fieldtype="one-to-many"
+    cfc="Post"
+    lazy="true";
+```
+
+We can also use `lazy=extra` to only retrieve the rows that we touch. This may work well if we commonly only access a few rows out of the full set of child items:
+
+```js
+property name="posts"
+    fieldtype="one-to-many"
+    cfc="Post"
+    lazy="extra";
 ```
