@@ -27,6 +27,30 @@ There are several "type" concepts and annotations you may need to use to keep th
 | `ormType`     | `big_decimal`,`timestamp`     | Data type for the database value.                                                         |
 | `sqlType`     |                               | A vendor-specific SQL type used for table creation only. This can normally be ignored.    |
 
+## Field Type
+
+The `fieldtype` attribute allows you to define the behavior and purpose of this property:
+
+```js
+property
+    name="userID"
+    fieldtype="id"
+    type="string";
+```
+
+There are several options for the `fieldtype` value:
+
+* `column` - By far the most common, this is the default behavior of every field.
+* `id` - Notes this field as the primary key or part of the a composite key.
+* `collection` - Denote a collection of items - this could represent a struct, an array
+* `version` - Denote a version field, useful for [optimistic locking](https://en.wikipedia.org/wiki/Optimistic_concurrency_control) on an entity
+* `timestamp` - Denote a timestamp field
+* `one-to-one` - Denote a [one-to-one relationship](relationships.md#one-to-one)
+* `one-to-many` - Denote a [one-to-many relationship](relationships.md#one-to-many)
+* `many-to-one` - Denote a [many-to-one relationship](relationships.md#many-to-one)
+* `many-to-many` - Denote a [many-to-many relationship](relationships.md#many-to-many)
+* `primary` - Not currently used.
+
 ## Common Property Annotations
 
 * `persistent`
