@@ -1,3 +1,7 @@
+---
+description: All about entity identifiers, from primary keys, and generators to composite keys and field types.
+---
+
 # Identifiers
 
 Identifier properties are denoted via `fieldtype="id"`.

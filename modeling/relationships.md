@@ -1,3 +1,7 @@
+---
+description: Entity relationships let you define an association between two entity types.
+---
+
 # Relationships
 
 Every relationship property must define the state of the relationship. In each case, the relationship property is defined in an entity which represents the "left" side of the relationship. If you bring a `Posts` relationship into the `User` entity, then from the `User` entity, the `User` is the left side of the relationship, and `Posts` is the right.
