@@ -26,6 +26,17 @@ component persistent="true"{
 | `column`      | `string`  | Table column where the property value is stored.                                          |
 | `dbDefault`   | `string`  | Set the default value for the property.                                                   |
 
+Make sure you quote datetime `dbdefault` values to avoid invalid date errors in MySQL:
+
+```js
+property
+    name     ="createdOn"
+    ormtype  ="datetime"
+    dbdefault="'2016-10-10'";
+```
+
+
+
 ## Property Types
 
 There are several "type" concepts and annotations you may need to use to keep the proper format when persisting or retrieving table data. While these may look similar, they are not equivalent.
