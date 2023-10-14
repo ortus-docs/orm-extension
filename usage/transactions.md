@@ -15,3 +15,15 @@ transaction{
 ```
 
 The transaction will automatically commit (persist) at the end of the transaction block. 
+
+## Transaction Rollback
+
+## Transaction Commit
+
+## Transaction Savepoint
+
+Savepoints are not *currently* supported on ORM transactions.
+
+{% hint style="info" %}
+Looking for ORM savepoint support? [Contact our Support team to consider sponsoring this feature](https://www.ortussolutions.com/products/orm-extension#support).
+{% endhint %}

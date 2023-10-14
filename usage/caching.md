@@ -49,6 +49,45 @@ This `ehcache.xml` cache configuration then should look something like this:
 </ehcache>
 ```
 
+## Configure Each Entity Cache
+
+Notice how our `ehcache.xml` defines a default cache configuration?
+
+```xml
+<defaultCache
+    maxElementsInMemory="10000" eternal="false"
+    timeToIdleSeconds="120" timeToLiveSeconds="120"
+    maxElementsOnDisk="10000000" diskExpiryThreadIntervalSeconds="120"
+    memoryStoreEvictionPolicy="LRU">
+    <persistence strategy="localTempSwap"/>
+</defaultCache>
+```
+
+We highly recommend adding a cache configuration for each cacheable entity. This will help you optimize caching, and will silence error logs like the below:
+
+```
+WARN: HHH90001006: Missing cache[default-update-timestamps-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.cache.ehcache.missing_cache_strategy' to 'create'
+```
+
+Here's a quick example. Say we have an `Autos.cfc` persistent component with caching enabled:
+
+```js
+component persistent="true" cacheUse="true"{
+    // persistent properties...
+}
+```
+
+For this entity, we'll want to create a `<cache></cache>` entry with a `name` attribute that matches the entity name OR our `cacheName` component annotation:
+
+```xml
+<cache
+    name="Autos"
+    maxElementsInMemory="20"
+    overflowToDisk="false"
+    eternal="true">
+</cache>
+```
+
 ### Alternate Cache Providers Are Unsupported
 
 While there is a `cacheProvider` setting, only EHCache (currently) is supported as a secondary cache provider.

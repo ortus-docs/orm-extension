@@ -64,3 +64,9 @@ this.ormSettings = {
 ```
 
 Thus, any usage of `cacheProvider` other than `"ehcache"` will be ignored.
+
+Savepoints are not *currently* supported on ORM transactions.
+
+{% hint style="info" %}
+Looking for alternate cache providers? [Contact our Support team to consider sponsoring this feature](https://www.ortussolutions.com/products/orm-extension#support).
+{% endhint %}
