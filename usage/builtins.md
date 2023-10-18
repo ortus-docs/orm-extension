@@ -152,9 +152,33 @@ entityReload( myCar );
 
 // our local changes should be replaced with the DB value
 expect( myCar.getModel() ).toBe( "Aventador" );
-    ```
+```
 
 ## EntitySave
+
+`EntitySave()` is how you save entity modifications. The changes will not persist to the database until `ormFlush()` is called:
+
+```js
+var myCar = entityNew( "Auto", {
+  make : "Ford",
+  model : "Fusion",
+  id : createUUID()
+} );
+entitySave( myCar );
+ormFlush();
+```
+
+EntitySave accepts an optional boolean parameter, `forceInsert`, which will tell Hibernate to skip the entity existence check and insert the entity:
+
+```js
+var myCar = entityNew( "User", {
+  username : "Johnny.Appleseed",
+  password : "McinT0sh"
+} );
+entitySave( myCar, true );
+```
+
+Most of the time this will be unnecessary.
 
 ## EntityToQuery
 
