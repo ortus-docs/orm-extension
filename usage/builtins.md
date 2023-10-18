@@ -51,7 +51,7 @@ ormFlush();
 
 ## EntityLoadByPK
 
-EntityLoadByPK allows you to instantiate an entity using the row identified by a primary key:
+`EntityLoadByPK()` allows you to instantiate an entity using the row identified by a primary key:
 
 ```js
 var theUser = entityLoadByPk( "User", url.userID );
@@ -61,9 +61,29 @@ A third argument, `unique`, is documented *but not implemented* in either the Lu
 
 ## EntityMerge
 
+`EntityMerge()` will merge a "detached" entity (meaning, not connected to any open session) back into the session.
+
+For example, running `ormClearSession()` will detach all loaded entities from the session. If you then make changes to an entity via a setter and run `ormFlush()`, those entity modifications will not be persisted unless you first merge the entity back to the session:
+
+```js
+var detachedAutoEntity = entityLoadByPK( "Auto", "12345" );
+
+// make a change but don't save it
+detachedAutoEntity.setModel( "Fusion" );
+
+// clear session - will "detach" the entity
+ormClearSession();
+
+// "merge" it back to the session
+var merged = entityMerge( detachedAutoEntity );
+
+// changes should be reflected in the new entity
+expect( merged.getModel() ).toBe( "Fusion" );
+```
+
 ## EntityNameArray
 
-EntityNameArray returns an array of all mapped entity names for the CFML application:
+`EntityNameArray()` returns an array of all mapped entity names for the CFML application:
 
 ```js
 var entityTypes = entityNameArray();
@@ -87,7 +107,52 @@ var entityTypes = entityNameList( "|" );
 
 ## EntityNew
 
+The `entityNew()` method allows you to create a new instance of a known entity type:
+
+```js
+var myCar = entityNew( "Auto" );
+```
+
+You can also pass a struct of properties to populate into the entity:
+
+```js
+var myCar = entityNew( "Auto", {
+  make : "Ford",
+  model : "Fusion",
+  id : createUUID()
+} );
+```
+
+Note that if you try to populate a property which does not exist, you will get an error:
+
+```js
+var myCar = entityNew( "Auto", {
+    make : "Ford",
+    model : "Fusion",
+    propThatDoesntExist : "abc"
+} );
+```
+
+This will throw an error: `component [Auto] has no function with name [setPROPTHATDOESNTEXIST]`
+
 ## EntityReload
+
+`entityReload()` will reload or refresh the entity state from the database. Local, unpersisted modifications will be replaced with database values.
+
+Here's a quick example:
+
+```js
+var myCar = entityLoadByPK( "Auto", "12345" );
+
+// make a change but don't save it
+myCar.setModel( "Revuelto" );
+
+// reload the entity
+entityReload( myCar );
+
+// our local changes should be replaced with the DB value
+expect( myCar.getModel() ).toBe( "Aventador" );
+    ```
 
 ## EntitySave
 
