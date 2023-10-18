@@ -45,9 +45,15 @@ ormFlush();
 // entity (row) is now wiped from the database.
 ```
 
+**Returns: `null`**
+
 ## EntityLoad
 
+**Returns: `Array`|`Component`|`null`**
+
 ## EntityLoadByExample
+
+**Returns: `Array`|`Component`|`null`**
 
 ## EntityLoadByPK
 
@@ -58,6 +64,8 @@ var theUser = entityLoadByPk( "User", url.userID );
 ```
 
 A third argument, `unique`, is documented *but not implemented* in either the Lucee Hibernate extension or the Ortus ORM Extension.
+
+**Returns: `Component`|`null`**
 
 ## EntityMerge
 
@@ -81,6 +89,8 @@ var merged = entityMerge( detachedAutoEntity );
 expect( merged.getModel() ).toBe( "Fusion" );
 ```
 
+**Returns: `Component`**
+
 ## EntityNameArray
 
 `EntityNameArray()` returns an array of all mapped entity names for the CFML application:
@@ -90,6 +100,8 @@ var entityTypes = entityNameArray();
 ```
 
 EntityNameArray accepts no arguments.
+
+**Returns: `Array`**
 
 ## EntityNameList
 
@@ -104,6 +116,8 @@ You can pass a string delimiter value as the first argument, if you don't like c
 ```js
 var entityTypes = entityNameList( "|" );
 ```
+
+**Returns: `string`**
 
 ## EntityNew
 
@@ -135,6 +149,8 @@ var myCar = entityNew( "Auto", {
 
 This will throw an error: `component [Auto] has no function with name [setPROPTHATDOESNTEXIST]`
 
+**Returns: `Component`**
+
 ## EntityReload
 
 `entityReload()` will reload or refresh the entity state from the database. Local, unpersisted modifications will be replaced with database values.
@@ -153,6 +169,8 @@ entityReload( myCar );
 // our local changes should be replaced with the DB value
 expect( myCar.getModel() ).toBe( "Aventador" );
 ```
+
+**Returns: `null`**
 
 ## EntitySave
 
@@ -180,30 +198,64 @@ entitySave( myCar, true );
 
 Most of the time this will be unnecessary.
 
+**Returns: `null`**
+
 ## EntityToQuery
+
+**Returns: `Query`**
 
 ## IsValidDatasource
 
+**Returns: `Boolean`**
+
 ## ORMClearSession
+
+**Returns: `null`**
 
 ## ORMCloseAllSessions
 
+**Returns: `null`**
+
 ## ORMCloseSession
+
+**Returns: `null`**
 
 ## ORMEvictCollection
 
+**Returns: `null`**
+
 ## ORMEvictEntity
+
+**Returns: `null`**
 
 ## ORMEvictQueries
 
+**Returns: `null`**
+
 ## ORMExecuteQuery
+
+**Returns: `Array`|`Struct`|`any`**
 
 ## ORMFlush
 
+**Returns: `null`**
+
 ## ORMGetSession
+
+**Returns: `Session`**
 
 ## ORMGetSessionFactory
 
+**Returns: `SessionFactory`**
+
 ## ORMQueryExecute
 
+Alias for `ORMExecuteQuery()`. 
+
+Added in `v6.4.0` (unreleased, version number subject to change.) - [5600833](https://github.com/Ortus-Solutions/extension-hibernate/commit/5600833a78f432dc07618895b65b0f3da46474b1)
+
+**Returns: `Array`|`Struct`|`any`**
+
 ## ORMReload
+
+**Returns: `null`**

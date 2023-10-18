@@ -22,7 +22,7 @@
 
 ## Usage
 
-* [Built-Ins](usage/builtins.md)
+* [Built-In Functions](usage/builtins.md)
 * [Querying](usage/querying.md)
 * [Events](usage/events.md)
 * [Session Management](usage/session-management.md)
