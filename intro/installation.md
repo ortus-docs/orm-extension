@@ -18,7 +18,7 @@ To install a specific version, set that by appending `;version=1.2.3` to the ext
 box server start cfengine=lucee@5.4 -Dlucee-extensions='D062D72F-F8A2-46F0-8CBC91325B2F067B;version=6.2.0'
 ```
 
-For all available version numbers, see our [Release History](release-history.md) or the [GitHub Releases page](https://github.com/Ortus-Solutions/extension-hibernate/releases).)
+(For all available version numbers, see our [Release History](release-history.md) or the [GitHub Releases page](https://github.com/Ortus-Solutions/extension-hibernate/releases).)
 
 Use `box install` if you wish to install the extension into an already running Lucee server:
 
