@@ -4,6 +4,26 @@ description: Version 6.x release notes for the Ortus ORM Extension
 
 # What's New With 6.x
 
+### [6.4.0](https://github.com/Ortus-Solutions/extension-hibernate/compare/v6.3.2...v6.4.0) - 2023-12-05
+
+#### 🔐 Security
+
+Resolve an [Uncontrolled Resource Consumption vulnerability disclosed on 12/4/2023](https://security.snyk.io/vuln/SNYK-JAVA-CHQOSLOGBACK-6097493) by upgrading `logback-core` to `1.3.14`. [See vulnerability details](https://security.snyk.io/vuln/SNYK-JAVA-CHQOSLOGBACK-6097493).
+
+#### ⭐ Added
+
+New `ORMQueryExecute()` alias for the `ORMExecuteQuery`. This new alias behaves identically to the `ORMExecuteQuery()` method, but is named consistently with the `queryExecute()` method.
+
+#### 🐛 Fixed
+
+* Fixes custom configuration support via `this.ormSettings.ormConfig`.
+* Fixes named argument support for `entityLoad()` - [LDEV-4285](https://luceeserver.atlassian.net/browse/LDEV-4285)
+* Fixes named argument support for `entityLoadByPK()` - [LDEV-4461](https://luceeserver.atlassian.net/browse/LDEV-4461)
+
+#### ♻️ Changed
+
+While not technically a change in ORM functionality, the `useDBforMapping` implementation has been greatly improved "under the hood", with tests to boot.
+
 ### [6.3.2](https://github.com/Ortus-Solutions/extension-hibernate/compare/v6.3.1...v6.3.2) - 2023-09-29
 
 #### 🐛 Fixed
