@@ -15,7 +15,7 @@ box server start cfengine=lucee@5.4 -Dlucee-extensions='D062D72F-F8A2-46F0-8CBC9
 To install a specific version, set that by appending `;version=1.2.3` to the extension ID:
 
 ```bash
-box server start cfengine=lucee@5.4 -Dlucee-extensions='D062D72F-F8A2-46F0-8CBC91325B2F067B;version=6.2.0'
+box server start cfengine=lucee@5.4 -Dlucee-extensions='D062D72F-F8A2-46F0-8CBC91325B2F067B;version=6.4.0'
 ```
 
 (For all available version numbers, see our [Release History](release-history.md) or the [GitHub Releases page](https://github.com/Ortus-Solutions/extension-hibernate/releases).)
@@ -23,7 +23,7 @@ box server start cfengine=lucee@5.4 -Dlucee-extensions='D062D72F-F8A2-46F0-8CBC9
 Use `box install` if you wish to install the extension into an already running Lucee server:
 
 ```bash
-box install D062D72F-F8A2-46F0-8CBC91325B2F067B@6.1.0
+box install D062D72F-F8A2-46F0-8CBC91325B2F067B@6.4.0
 ```
 
 ## From the Lucee Server Admin
