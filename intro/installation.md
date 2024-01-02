@@ -37,6 +37,8 @@ We recommend setting the `lucee-extensions` environment variable in your `server
 ```
 {% endcode %}
 
+This config instructs Lucee (not CommandBox) to install the Ortus ORM Extension when Lucee starts up.
+
 ### Via Box Install
 
 Use `box install` if you wish to install the extension into an already installed Lucee server:
