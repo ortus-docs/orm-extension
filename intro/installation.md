@@ -8,10 +8,6 @@ description: Get up and running in seconds!
 
 ### Via `lucee-extensions` system property
 
-{% hint style="danger" %}
-Warning: This method is not currently working due to an underlying issue in either CommandBox's or Lucee's handling of system properties. Use [the environment variable method](installation.md#via-lucee-extensions-environment-variable).
-{% endhint %}
-
 You can install this extension at server start time by passing the extension ID into the `lucee-extensions` environment variable:
 
 ```bash
