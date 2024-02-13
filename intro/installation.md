@@ -6,7 +6,11 @@ description: Get up and running in seconds!
 
 ## CommandBox
 
-### Via `lucee-extensions` env var
+### Via `lucee-extensions` system property
+
+{% hint style="danger" %}
+Warning: This method is not currently working due to an underlying issue in either CommandBox's or Lucee's handling of system properties. Use [the environment variable method](installation.md#via-lucee-extensions-environment-variable).
+{% endhint %}
 
 You can install this extension at server start time by passing the extension ID into the `lucee-extensions` environment variable:
 
@@ -21,6 +25,8 @@ box server start cfengine=lucee@5.4 -Dlucee-extensions='D062D72F-F8A2-46F0-8CBC9
 ```
 
 (For all available version numbers, see our [Release History](release-history.md) or the [GitHub Releases page](https://github.com/Ortus-Solutions/extension-hibernate/releases).)
+
+### Via `lucee-extensions` environment variable
 
 We recommend setting the `lucee-extensions` environment variable in your `server.json` file. This ensures that anyone can run `server start` from CommandBox to install all the necessary Lucee extensions:
 
@@ -46,6 +52,8 @@ Use `box install` if you wish to install the extension into an already installed
 ```bash
 box install D062D72F-F8A2-46F0-8CBC91325B2F067B@6.4.0
 ```
+
+_This method will not work until the Lucee server has been installed._
 
 ## From the Lucee Server Admin
 
