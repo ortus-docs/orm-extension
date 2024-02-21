@@ -4,6 +4,35 @@ description: Version 6.x release notes for the Ortus ORM Extension
 
 # What's New With 6.x
 
+### [6.5.2](https://github.com/Ortus-Solutions/extension-hibernate/compare/v6.5.1...v6.5.2) - 2024-02-21
+
+#### 🐛 Fixed
+
+* Fixes a regression on [OOE-26](https://ortussolutions.atlassian.net/browse/OOE-26) where empty string values are coerced to `NULL` when an ORM type _is_ declared. Originally reported against `6.4.0`, resolved in `6.5.0`, then regressed in `6.5.1`. - Resolves [OOE-26](https://ortussolutions.atlassian.net/browse/OOE-26).
+
+### [6.5.1](https://github.com/Ortus-Solutions/extension-hibernate/compare/v6.5.0...v6.5.1) - 2024-02-20
+
+#### 🐛 Fixed
+
+* Fixes empty string values coercing to `NULL` when no property type is declared. - Resolves [OOE-25](https://ortussolutions.atlassian.net/browse/OOE-25), introduced in 6.5.0.
+
+### [6.5.0](https://github.com/Ortus-Solutions/extension-hibernate/compare/v6.4.0...v6.5.0) - 2024-02-16
+
+#### 🐛 Fixed
+
+* Fixes an incorrect property name lookup for the `unsavedValue` persistent property attribute.
+* Fixes the pre-event listeners to ignore empty strings in entity state properties if the field type is one of `string`, `character`, or `text`. This resolves issues where a `preInsert()` or `preUpdate()` throws a "can't cast \[] to date value" when processing event listeners if a date field (for example) is unpopulated or has an empty `default` attribute.
+
+#### ♻️ Changed
+
+Add the entity name to the exception message when attempting to persist changes from `preInsert` or `preUpdate` event listeners. The updated exception message is now:
+
+> Error populating event state for persistance in \[\<entity name>] entity pre-event listener method: \<error message from Hibernate>
+
+#### 🔐 Security
+
+Bump Lucee build dependency to `5.4.4.38` to avoid [vulnerable dependencies in the build process](https://mvnrepository.com/artifact/org.lucee/lucee/5.4.1.8).
+
 ### [6.4.0](https://github.com/Ortus-Solutions/extension-hibernate/compare/v6.3.2...v6.4.0) - 2023-12-05
 
 #### 🔐 Security
