@@ -8,13 +8,13 @@ description: Get up and running in seconds!
 
 You can install this extension by adding the extension ID to the `lucee-extensions` environment variable and restarting the server:
 
-<pre class="language-bash"><code class="lang-bash"><strong>box server set env."lucee-extensions"="D062D72F-F8A2-46F0-8CBC91325B2F067B" &#x26;&#x26; box restart
+<pre class="language-bash"><code class="lang-bash"><strong>box server set env.LUCEE_EXTENSIONS="D062D72F-F8A2-46F0-8CBC91325B2F067B" &#x26;&#x26; box restart
 </strong></code></pre>
 
 You can install a specific version by appending a version string to the extension ID:
 
 ```bash
-box server set env."lucee-extensions"="D062D72F-F8A2-46F0-8CBC91325B2F067B;version=6.5.2" && box restart
+box server set env.LUCEE_EXTENSIONS="D062D72F-F8A2-46F0-8CBC91325B2F067B;version=6.5.2" && box restart
 ```
 
 (For all available version numbers, see our [Release History](release-history.md) or the [GitHub Releases page](https://github.com/Ortus-Solutions/extension-hibernate/releases).)
@@ -26,7 +26,7 @@ Running the `box server set env.lucee-extensions` command will edit your `server
 {
     // ...
     "env":{
-        "lucee-extensions":"D062D72F-F8A2-46F0-8CBC91325B2F067B;version=6.5.2"
+        "LUCEE_EXTENSIONS":"D062D72F-F8A2-46F0-8CBC91325B2F067B;version=6.5.2"
     }
 }
 ```
