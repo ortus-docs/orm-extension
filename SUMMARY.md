@@ -12,6 +12,7 @@
 * [Configuration](intro/configuration.md)
   * [Custom Hibernate Config](intro/configuration/custom-hibernate-config.md)
   * [Secondary Caches](intro/configuration/secondary-caches.md)
+  * [Logging](getting-started/configuration/logging.md)
 
 ## Modeling
 
