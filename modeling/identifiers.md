@@ -1,5 +1,7 @@
 ---
-description: All about entity identifiers, from primary keys, and generators to composite keys and field types.
+description: >-
+  All about entity identifiers, from primary keys, and generators to composite
+  keys and field types.
 ---
 
 # Identifiers
@@ -22,7 +24,7 @@ property name="id"
 
 The Assigned generator is the default identifier generator type, and simply allows the application (your CFML) to assign identifier values prior to insertion. You can think of this as `generator=none`.
 
-> lets the application assign an identifier to the object before save() is called. This is the default strategy if no <generator> element is specified. - _[Hibernate 3.3 mapping reference docs](https://docs.jboss.org/hibernate/core/3.3/reference/en/html/mapping.html#mapping-declaration-id-generator)_
+> lets the application assign an identifier to the object before save() is called. This is the default strategy if no element is specified. - [_Hibernate 3.3 mapping reference docs_](https://docs.jboss.org/hibernate/core/3.3/reference/en/html/mapping.html#mapping-declaration-id-generator)
 
 ```js
 property name="id"
@@ -43,7 +45,7 @@ function preInsert( entity ){
 
 A select generator will attempt to select the next identifier value from the specified `selectKey` column:
 
-> retrieves a primary key, assigned by a database trigger, by selecting the row by some unique key and retrieving the primary key value. - _[Hibernate 3.3 mapping reference docs](https://docs.jboss.org/hibernate/core/3.3/reference/en/html/mapping.html#mapping-declaration-id-generator)_
+> retrieves a primary key, assigned by a database trigger, by selecting the row by some unique key and retrieving the primary key value. - [_Hibernate 3.3 mapping reference docs_](https://docs.jboss.org/hibernate/core/3.3/reference/en/html/mapping.html#mapping-declaration-id-generator)
 
 ```js
 property name="userID"
@@ -57,7 +59,7 @@ property name="userID"
 
 The UUID generator uses Hibernate's uuid generator under the hood:
 
-> uses a 128-bit UUID algorithm to generate identifiers of type string that are unique within a network (the IP address is used). The UUID is encoded as a string of 32 hexadecimal digits in length. - _[Hibernate 3.3 mapping reference docs](https://docs.jboss.org/hibernate/core/3.3/reference/en/html/mapping.html#mapping-declaration-id-generator)_
+> uses a 128-bit UUID algorithm to generate identifiers of type string that are unique within a network (the IP address is used). The UUID is encoded as a string of 32 hexadecimal digits in length. - [_Hibernate 3.3 mapping reference docs_](https://docs.jboss.org/hibernate/core/3.3/reference/en/html/mapping.html#mapping-declaration-id-generator)
 
 ```js
 property name="userID"
@@ -70,11 +72,21 @@ property name="userID"
 
 The Increment generator uses a simple incrementing value to create identifiers. Do not use in concurrent applications, as the values may no longer be unique.
 
-> Generates identifiers of type long, short or int that are unique only when no other process is inserting data into the same table. Do not use in a cluster. - _[Hibernate 3.3 mapping reference docs](https://docs.jboss.org/hibernate/core/3.3/reference/en/html/mapping.html#mapping-declaration-id-generator)_
+> Generates identifiers of type long, short or int that are unique only when no other process is inserting data into the same table. Do not use in a cluster. - [_Hibernate 3.3 mapping reference docs_](https://docs.jboss.org/hibernate/core/3.3/reference/en/html/mapping.html#mapping-declaration-id-generator)
 
 ```js
 property name="userID"
             fieldtype="id"
-            generator="guid"
+            generator="increment"
             update="false";
 ```
+
+#### Other Valid Generator Types
+
+There are several lesser-known identifier generator types, including:
+
+* `foreign` - use a foreign CFC's generator configuration
+* `seqhilo`
+* `sequence`
+* `select` - select the next value from the column denoted in `selectKey`
+* `uuid` - use Hibernate's UUID generation
