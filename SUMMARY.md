@@ -30,3 +30,9 @@
 * [HQL](usage/hql.md)
 * [Transactions](usage/transactions.md)
 * [Caching](usage/caching.md)
+
+## External Links
+
+* [API Docs for v6.5.2](https://s3.amazonaws.com/apidocs.ortussolutions.com/lucee/hibernate-extension/6.5.2/index.html)
+* [Source Code](https://github.com/Ortus-Solutions/extension-hibernate)
+* [Issue Tracker](https://ortussolutions.atlassian.net/jira/software/c/projects/OOE/issues)
