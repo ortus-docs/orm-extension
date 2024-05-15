@@ -41,3 +41,13 @@ You can manually install the extension by opening the Lucee server admin page an
 ### Direct Download
 
 You can also download a `.lex` file from [our downloads page](https://downloads.ortussolutions.com/#/ortussolutions/lucee-extensions/ortus-orm/) and upload this through the Lucee Server admin's Applications page.
+
+### Don't Forget To Restart!
+
+Whichever method you use to install the extension, we recommend restarting the server after installing.
+
+Via CommandBox:
+
+```
+server restart
+```
